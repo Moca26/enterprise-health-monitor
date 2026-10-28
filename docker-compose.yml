@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  health-monitor:
+    build: .
+    container_name: enterprise-health-monitor
+    restart: unless-stopped
+    environment:
+      - TARGET_HOSTS=8.8.8.8,1.1.1.1,192.168.1.1
+      - CHECK_INTERVAL=60
+      - WEBHOOK_URL=your_webhook_url_here
+      
